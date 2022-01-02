@@ -1,5 +1,13 @@
 # nix-config
-Nix Home Manager config
+
+### NixOS config
+
+
+The nixos directory contains various nix configs used to setup NixOS on an old Lenovo Thinkpad x220
+ZFS is used for the disk and a lot of things that are commented out is things that I have tried out on various occations
+
+
+### Nix Home Manager config
 
 
 You should clone this repo to the root of your $HOME directory
@@ -45,7 +53,6 @@ file in your shell configuration ($HOME/.profile or $HOME/.zprofile).
 ```
 cd $HOME/.config/nixpkgs
 ln -sr ../../nix-config/home-manager/home.nix home.nix
-ln -sr ../../nix-config/home-manager/nix/nix.conf ../nix/nix.conf 
 ln -sr ../../nix-config/home-manager/modules modules
 ```
 
