@@ -39,6 +39,7 @@
     ./modules/firefox.nix
     ./modules/git.nix
     ./modules/golang.nix
+    #./modules/keybase.nix
     ./modules/neovim.nix
     ./modules/python.nix
     ./modules/rofi.nix

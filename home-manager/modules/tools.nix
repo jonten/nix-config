@@ -5,25 +5,39 @@
     any-nix-shell
     cachix
     dmidecode
+    exfat
+    exfat-utils
     figlet
     file
+    fuse_exfat
     htop
     httpie
     inconsolata-nerdfont
     jq
+    lshw
     lsof
     nerdfonts
     nix-bash-completions
     nix-prefetch-scripts
     nmap
     nox
+    pciutils
+    pwgen
     ripgrep-all
+    rclone
+    sd-switch
+    smartmontools
     spacevim
+    srm
+    sshpass
     tmate
     tree
     unrar
     unzip
 		vim
     wget
+    whois
+    xorg.xkill
+    zip
   ];
 }

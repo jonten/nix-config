@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    nix-zsh-completions
+    zsh-autosuggestions
+    zsh-completions
+    zsh-nix-shell
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -11,9 +18,11 @@
 		history.ignorePatterns = [ "rm -rf *" "pkill *" "kill *" ];
 		history.ignoreSpace = true;
     dotDir = ".config/zsh";
-		localVariables = { 
-			#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = [ "dir" "vcs" ];
-		};
+    initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels";
+    completionInit = "autoload -U compinit && compinit";
+    #localVariables = { 
+		#  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = [ "dir" "vcs" ];
+		#};
     dirHashes = {
 			docs  = "$HOME/Documents";
 			dl    = "$HOME/Downloads";

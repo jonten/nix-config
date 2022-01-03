@@ -6,7 +6,12 @@
     bitwarden
     brave
     discord
+    element-desktop
+    gimp
+    guake
     lens
+    libreoffice-fresh
+    liferea
     maestral
     maestral-gui
     obsidian

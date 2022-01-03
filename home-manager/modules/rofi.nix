@@ -2,12 +2,14 @@
 {
   programs.rofi = {
     enable = true;
-    font = "Droid Sans Mono 14";
-    location = "center";
-    terminal = "\${pkgs.wezterm}/bin/wezterm";
-    theme = "/run/current-system/sw/share/rofi/themes/arthur.rasi";
+    package = pkgs.rofi;
+    font = "Droid Sans Mono 22";
+    plugins = [ pkgs.rofi-calc pkgs.rofi-emoji ];
+    cycle = true;
+    theme = "fancy";
     extraConfig = {
-        modi = "run,ssh,drun,keys,emoji";
+        modi = "window,run,ssh,drun,keys,calc,emoji";
+        combi-modi = "window,drun,ssh";
         show-icons = true;
         lines = 5;
     };
