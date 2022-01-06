@@ -163,7 +163,7 @@ body.dark-theme .tab .tab-icon {
   * - that only leaves nav bar = 40px in normal mode (default)
   */
 #sidebar-box {
-  height: calc(100vh - 53px);
+  height: calc(100vh - 40px);
 }
 
 #sidebar {

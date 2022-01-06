@@ -11,7 +11,6 @@
         modi = "window,run,ssh,drun,keys,calc,emoji";
         combi-modi = "window,drun,ssh";
         show-icons = true;
-        lines = 5;
     };
   };
 }

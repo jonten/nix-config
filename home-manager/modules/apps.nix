@@ -2,6 +2,8 @@
 {
   # Install misc apps without configuration
   home.packages = with pkgs; [
+    _1password
+    _1password-gui
     authy
     bitwarden
     brave

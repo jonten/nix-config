@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     any-nix-shell
     cachix
+    dig
     dmidecode
     exfat
     exfat-utils

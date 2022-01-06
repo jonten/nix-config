@@ -17,6 +17,7 @@
 		history.ignoreDups = true;
 		history.ignorePatterns = [ "rm -rf *" "pkill *" "kill *" ];
 		history.ignoreSpace = true;
+    history.share = true;
     dotDir = ".config/zsh";
     initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels";
     completionInit = "autoload -U compinit && compinit";
@@ -160,20 +161,5 @@
       # Show untracked files
       gu = "git ls-files . --exclude-standard --others";
     }; 
-  };
-
-  # Prezto ZSH plugin manager
-  programs.zsh.prezto = {
-    enable = true;
-    autosuggestions.color = "fg=blue";
-    caseSensitive = true;
-    color = true;
-    editor.dotExpansion = true;
-    historySubstring.foundColor = "fg=green";
-    historySubstring.notFoundColor = "fg=red";
-    #prompt.showReturnVal = true;
-    #prompt.theme = "pure";
-    #prompt.pwdLength = "full";
-    utility.safeOps = true;
   };
 }
