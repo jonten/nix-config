@@ -9,17 +9,18 @@
     brave
     discord
     element-desktop
+    feedreader
     gimp
     guake
+    imwheel
     lens
     libreoffice-fresh
-    liferea
     maestral
     maestral-gui
+    obinskit
     obsidian
     signal-cli
     signal-desktop
     slack
-    spotify
   ];
 }

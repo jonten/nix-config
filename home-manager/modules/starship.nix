@@ -77,7 +77,8 @@
         #version_format = "v${raw}";
 			};
 			gcloud = {
-				symbol = "  ";
+				symbol = " ";
+        format = "[$symbol]($style) ";
 			};
 			golang = {
 				symbol = " ";

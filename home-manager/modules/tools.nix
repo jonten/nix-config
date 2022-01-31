@@ -2,6 +2,7 @@
 {
   # Install misc tools, utils and fonts without configuration
   home.packages = with pkgs; [
+    adoptopenjdk-openj9-bin-16
     any-nix-shell
     cachix
     dig
@@ -17,11 +18,13 @@
     jq
     lshw
     lsof
+    moreutils
     nerdfonts
     nix-bash-completions
     nix-prefetch-scripts
     nmap
     nox
+    openssl
     pciutils
     pwgen
     ripgrep-all

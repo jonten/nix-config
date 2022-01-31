@@ -20,26 +20,50 @@
     history.share = true;
     dotDir = ".config/zsh";
     initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels";
-    completionInit = "autoload -U compinit && compinit";
-    #localVariables = { 
-		#  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = [ "dir" "vcs" ];
-		#};
+    #completionInit = "autoload -U compinit && compinit";
     dirHashes = {
 			docs  = "$HOME/Documents";
 			dl    = "$HOME/Downloads";
 			iso    = "$HOME/Downloads/iso";
 			code    = "$HOME/code";
     };
+    plugins = [
+      {
+        # will source zsh-autosuggestions.plugin.zsh
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.7.0";
+          sha256 = "1g3pij5qn2j7v7jjac2a63lxd97mcsgw6xq6k5p7835q9fjiid98";
+        };
+      }
+      {
+        name = "enhancd";
+        file = "init.sh";
+        src = pkgs.fetchFromGitHub {
+          owner = "b4b4r07";
+          repo = "enhancd";
+          rev = "v2.2.4";
+          sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
+        };
+      }
+    ];
     shellAliases = {
       # Shell aliases
       vi = "vim";
       vim = "spacevim";
+      nvim = "spacevim";
       hm = "home-manager";
       hmg = "home-manager generations";
       hmh = "home-manager help";
       hmp = "home-manager packages";
       hms = "home-manager switch";
       hmsb = "home-manager switch -b backup";
+
+      # Kubernetes
+      kc = "kubectl";
+      c = "kubectl config use-context";
 
       # Git aliases
       gcl = "git clone";  

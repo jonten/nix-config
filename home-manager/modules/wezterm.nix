@@ -16,7 +16,17 @@
 			check_for_updates = false,
       window_decorations = "RESIZE",
       hide_tab_bar_if_only_one_tab = true,
-      use_fancy_tab_bar = false
+      use_fancy_tab_bar = false,
+      keys = {
+        -- paste from the clipboard
+        {key="V", mods="CTRL", action=wezterm.action{PasteFrom="Clipboard"}},
+
+        -- paste from the primary selection
+        {key="V", mods="CTRL", action=wezterm.action{PasteFrom="PrimarySelection"}},
+        
+        -- activate quick select mode
+        {key=" ", mods="SHIFT|CTRL", action="QuickSelect"},
+      }
 		}
 	'';
 

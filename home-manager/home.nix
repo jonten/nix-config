@@ -48,6 +48,7 @@
     ./modules/tmux.nix
     ./modules/tools.nix
     ./modules/wezterm.nix
+    ./modules/vscode.nix
     ./modules/zsh.nix
   ];
 }
