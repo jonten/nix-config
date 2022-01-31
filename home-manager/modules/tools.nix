@@ -17,7 +17,7 @@
     nix-prefetch-scripts
     nmap
     nox
-    ripgrep-all
+    ripgrep
     spacevim
     tmate
     tree

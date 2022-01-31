@@ -5,9 +5,10 @@
     font = "Droid Sans Mono 14";
     location = "center";
     terminal = "\${pkgs.wezterm}/bin/wezterm";
-    theme = "/run/current-system/sw/share/rofi/themes/arthur.rasi";
+    theme = "arthur";
     extraConfig = {
-        modi = "run,ssh,drun,keys,emoji";
+        modi = "window,run,ssh,drun,keys";
+        combi-modi = "window,drun";
         show-icons = true;
         lines = 5;
     };

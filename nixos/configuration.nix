@@ -22,7 +22,10 @@
   #'';
 
   # Use latest kernel for desktop use
+  #boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  #boot.kernelPackages = pkgs.linuxPackages_lqx;
+  #boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -56,6 +59,14 @@
   networking.enableIPv6 = false;
   boot.kernelParams = [ "ipv6.disable=1" "nohibernate" ];
 
+  # Open firewall ports for GSConnect
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 1714; to = 1764; }
+  ];
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 1714; to = 1764; }
+  ];
+
   # Provide networkmanager for easy wireless configuration.
   networking.networkmanager.enable = true;
   services.dbus.enable = true;
@@ -84,6 +95,7 @@
   # -env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     actkbd
+    #awesome
     bind
     cabextract
     calibre
@@ -109,29 +121,34 @@
     gimp
     gnome.gnome-tweaks
     gnomeExtensions.pop-shell
-    gnomeExtensions.hotkeys-popup
+    #gnomeExtensions.hotkeys-popup
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.dash-to-dock
+    #gnomeExtensions.ddterm
     gnomeExtensions.force-quit
+    gnomeExtensions.gsconnect
     gnomeExtensions.hide-top-bar
     gnomeExtensions.media-controls
-    gnomeExtensions.mute-spotify-ads
+    gnomeExtensions.material-shell
+    #gnomeExtensions.mute-spotify-ads
     gnomeExtensions.no-overview
     gnomeExtensions.nothing-to-say
     gnomeExtensions.sermon
     gnomeExtensions.vitals
-    gnomeExtensions.just-perfection
+    #gnomeExtensions.just-perfection
     gnomeExtensions.logo-menu
     gnome.gnome-boxes
     gnupg
     gpgme
-    guake
+    #guake
     gutenprint
-    i3
-    i3blocks
-    i3cat
-    i3lock
-    i3minator
+    #i3
+    #i3blocks
+    i3-gaps
+    i3blocks-gaps
+    #i3lock-fancy-rapid
+    i3-auto-layout
+    i3-layout-manager
     i3status
     kbfs
     keepassx
@@ -143,12 +160,16 @@
     linuxPackages.virtualbox
     linuxPackages.virtualboxGuestAdditions
     lxqt.lximage-qt
+    #lxsession
     #mate.mate-notification-daemon
     #mobile_broadband_provider_info
+    marwaita-pop_os
     mp4v2
     #nasc
     #nix-index
     #nixops
+    #obs-studio
+    #obs-studio-plugins.obs-move-transition
     openbox
     openshot-qt
     opensnitch
@@ -158,6 +179,8 @@
     parted
     #pkgconfig
     #poedit
+    picom
+    polybar
     pop-gtk-theme
     pop-icon-theme
     powerline-fonts
@@ -166,6 +189,7 @@
     pwsafe
     #qutebrowser
     rclone
+    #ruby
     smartmontools
     srm
     sshpass
@@ -185,12 +209,14 @@
     virt-manager
     vivaldi
     vlc
+    #volnoti
     vscode
     whois
     wireshark-qt
     xfsprogs
     xorg.xbacklight
     xorg.xkill
+    xscreensaver
     zeal
     zinit
     zip
@@ -238,10 +264,10 @@
   #};
 
   # Adding trusted binary cache
-  nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
+  #nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
 
   # Adding trusted binary cache users
-  nix.trustedUsers = [ "root" "xxx" ];
+  nix.trustedUsers = [ "root" "jonte" ];
 
   # Add ZSH Shell
   programs.zsh.enable = true;
@@ -262,6 +288,7 @@
   # List services that you want to enable:
   
   # Enable virtualbox service
+  #services.virtualboxHost.enable = true;
   virtualisation.virtualbox.host.enable = true;
 
   # Libvirt, QEMU, KVM support
@@ -273,7 +300,7 @@
   # services.openssh.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  ###services.xserver.enable = true;
   services.xserver.layout = "se";
   services.xserver.xkbOptions = "eurosign:e";
   services.xserver.enableCtrlAltBackspace = true;
@@ -287,30 +314,106 @@
   ###services.xserver.desktopManager.plasma5.enable = true;
   #services.xserver.desktopManager.plasma5.enableQt4Support = true;
   #services.xserver.desktopManager.plasma5.extraPackages = [];
-  #services.xserver.windowManager.awesome.enable = true;
   #services.xserver.desktopManager.enlightenment.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.windowManager.i3.extraSessionCommands = "";
+  #services.xserver.windowManager.i3.enable = true;
+  #services.xserver.windowManager.i3.extraSessionCommands = "";
   #services.xserver.windowManager.openbox.enable = true;
-  services.xserver.desktopManager.pantheon.enable = false;
-  services.xserver.displayManager.lightdm.enable = false;
-  services.xserver.displayManager.lightdm.greeters.pantheon.enable = false;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  
+  #services.xserver.desktopManager.pantheon.enable = false;
+  #services.xserver.displayManager.lightdm.enable = false;
+  #services.xserver.displayManager.lightdm.greeters.pantheon.enable = false;
+  #services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.windowManager.awesome.enable = true;
+
+
+  # Gnome Flashback + i3
+  #services.xserver.desktopManager.gnome.flashback.enableMetacity = false;
   #services.xserver.desktopManager.gnome.flashback.customSessions = [
   #  {
   #    wmName = "i3";
   #    wmLabel = "i3";
-  #    wmCommand = "${pkgs.i3}/bin/i3";
-  #    enableGnomePanel = false;
+  #    wmCommand = "${pkgs.i3-gaps}/bin/i3";
+  #    enableGnomePanel = true;
   #  }
   #]; 
 
+  # XFCE + i3
+  services.xserver = {
+    enable = true;   
+    desktopManager = {
+      gnome.enable = true;
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+        thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
+      };
+    };
+    windowManager.i3.package = pkgs.i3-gaps;
+    windowManager.i3.enable = true;
+    #windowManager.awesome.enable = true;
+    displayManager.defaultSession = "xfce+i3";
+    displayManager.gdm.enable = true;
+  };
+
+  services.picom = {
+    enable = true;
+    fade = true;
+    inactiveOpacity = 0.9;
+    shadow = true;
+    fadeDelta = 4;
+  };
+
+  #services.xserver.displayManager.session = [
+  #  { manage = "desktop";
+  #    name = "lxqt";
+  #    start = ''
+  #      ${pkgs.lxsession}/bin/lxsession -s default -a -e lxqt+i3 &
+  #      waitPID=$!
+  #    '';
+  #  }
+  #  { manage = "window";
+  #    name = "i3";
+  #    start = ''
+  #      ${pkgs.i3-gaps}/bin/i3 &
+  #      waitPID=$!
+  #    '';
+  #  }
+  #];
+
+  # XFCE + XMonad 
+  #services.xserver = {
+  #  enable = true;   
+  #  desktopManager = {
+  #    gnome.enable = true;
+  #    xterm.enable = false;
+  #    xfce = {
+  #      enable = true;
+  #      noDesktop = true;
+  #      enableXfwm = false;
+  #    };
+  # };
+  # windowManager = {
+  #  awesome.enable = true;
+  #  xmonad = {
+  #    enable = true;
+  #    enableContribAndExtras = true;
+  #    extraPackages = haskellPackages : [
+  #      haskellPackages.xmonad-contrib
+  #      haskellPackages.xmonad-extras
+  #      haskellPackages.xmonad
+  #    ];
+  #  };
+  #};
+  #  displayManager.defaultSession = "xfce+xmonad";
+  #  displayManager.gdm.enable = true;
+  #};
+
   # Enable Syncthing service
-  #services.syncthing.dataDir = "/home/xxx/.config/syncthing";
+  #services.syncthing.dataDir = "/home/jonte/.config/syncthing";
   #services.syncthing.enable = true;  
-  #services.syncthing.user = "xxx";  
+  #services.syncthing.user = "jonte";  
   #services.syncthing.systemService = true;
 
   # Enable Hashicorp Vault
@@ -341,7 +444,7 @@
 
   # Enable CUPS to print documents.
   #let
-  #  pkgs = pkgs.callPackage ../../home/xxx/source/git/nixpkgs/pkgs/misc/cups/drivers/brother/dcpl3550cdw/default.nix {};
+  #  pkgs = pkgs.callPackage ../../home/jonte/source/git/nixpkgs/pkgs/misc/cups/drivers/brother/dcpl3550cdw/default.nix {};
   #in
   services.printing = {
     enable = true;
@@ -373,17 +476,17 @@
 
   #users.defaultUserShell = pkgs.zsh;
   # Define a user account. Don't forget to set a password with passwd 
-   users.extraUsers.xxx = {
+   users.extraUsers.jonte = {
      isNormalUser = true;
-     name = "xxx";
+     name = "jonte";
      group = "users";
-     description = "xxx";
+     description = "Jonte Norman";
      extraGroups = [ "wheel" "networkmanager" "vboxusers" "dialout" "docker" "adm" "libvirtd" "video" ];
      shell = pkgs.zsh;
      useDefaultShell = false;
      #uid = 1000;
      createHome = true;
-     home = "/home/xxx";
+     home = "/home/jonte";
   };
 
   # Start ssh-agent and add keys valid for 8 hours

@@ -7,6 +7,7 @@
     brave
     discord
     lens
+    lxappearance
     maestral
     maestral-gui
     obsidian

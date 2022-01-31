@@ -6,4 +6,5 @@
     }))
   ];
   programs.neovim.enable = true;
+  programs.neovim.package = pkgs.neovim-nightly;
 }

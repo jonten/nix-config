@@ -82,7 +82,8 @@ body.dark-theme .tab .tab-icon {
 }
     '';
     profiles.default.userChrome = ''
-#main-window:not([customizing]):not([tabsintitlebar="true"]) #TabsToolbar {
+#main-window:not([customizing]):not([tabsintitlebar="true"])
+#TabsToolbar {
   visibility: collapse;
 }
 #navigator-toolbox {
@@ -93,7 +94,8 @@ body.dark-theme .tab .tab-icon {
   visibility: collapse;
 }
 
-#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header {
+#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"]
+#sidebar-header {
   visibility: collapse;
 }
 
