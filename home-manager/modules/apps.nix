@@ -11,6 +11,7 @@
     maestral
     maestral-gui
     obsidian
+    qownnotes
     signal-cli
     signal-desktop
     slack
