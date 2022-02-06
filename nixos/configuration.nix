@@ -138,11 +138,13 @@
     ##gnomeExtensions.just-perfection
     #gnomeExtensions.logo-menu
     gnome.gnome-boxes
-		gnome.gnome-keyring
+    gnome.gnome-keyring
+    gnome.seahorse
     gnupg
     gpgme
     #guake
     gutenprint
+    hddtemp
     #i3
     #i3blocks
     i3-gaps
