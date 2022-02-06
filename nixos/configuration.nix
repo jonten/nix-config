@@ -119,25 +119,26 @@
     font-awesome-ttf
     fuse_exfat
     gimp
-    gnome.gnome-tweaks
-    gnomeExtensions.pop-shell
-    #gnomeExtensions.hotkeys-popup
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.dash-to-dock
-    #gnomeExtensions.ddterm
-    gnomeExtensions.force-quit
-    gnomeExtensions.gsconnect
-    gnomeExtensions.hide-top-bar
-    gnomeExtensions.media-controls
-    gnomeExtensions.material-shell
-    #gnomeExtensions.mute-spotify-ads
-    gnomeExtensions.no-overview
-    gnomeExtensions.nothing-to-say
-    gnomeExtensions.sermon
-    gnomeExtensions.vitals
-    #gnomeExtensions.just-perfection
-    gnomeExtensions.logo-menu
+    #gnome.gnome-tweaks
+    #gnomeExtensions.pop-shell
+    ##gnomeExtensions.hotkeys-popup
+    #gnomeExtensions.clipboard-indicator
+    #gnomeExtensions.dash-to-dock
+    ##gnomeExtensions.ddterm
+    #gnomeExtensions.force-quit
+    #gnomeExtensions.gsconnect
+    #gnomeExtensions.hide-top-bar
+    #gnomeExtensions.media-controls
+    #gnomeExtensions.material-shell
+    ##gnomeExtensions.mute-spotify-ads
+    #gnomeExtensions.no-overview
+    #gnomeExtensions.nothing-to-say
+    #gnomeExtensions.sermon
+    #gnomeExtensions.vitals
+    ##gnomeExtensions.just-perfection
+    #gnomeExtensions.logo-menu
     gnome.gnome-boxes
+		gnome.gnome-keyring
     gnupg
     gpgme
     #guake
@@ -213,6 +214,19 @@
     vscode
     whois
     wireshark-qt
+    xfce.catfish
+    xfce.xfce4-icon-theme
+    xfce.xfce4-weather-plugin
+    xfce.xfce4-systemload-plugin
+    xfce.xfce4-sensors-plugin
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-panel
+    xfce.xfce4-panel-profiles
+    xfce.xfce4-i3-workspaces-plugin
+    xfce.xfce4-dockbarx-plugin
+    xfce.xfce4-datetime-plugin
+    xfce.xfce4-clipman-plugin
+    xfce.xfconf
     xfsprogs
     xorg.xbacklight
     xorg.xkill
@@ -267,7 +281,7 @@
   #nix.trustedBinaryCaches = [ "http://hydra.nixos.org" ];
 
   # Adding trusted binary cache users
-  nix.trustedUsers = [ "root" "jonte" ];
+  nix.settings.trusted-users = [ "root" "jonte" ];
 
   # Add ZSH Shell
   programs.zsh.enable = true;
@@ -341,20 +355,24 @@
   services.xserver = {
     enable = true;   
     desktopManager = {
-      gnome.enable = true;
+      #gnome.enable = true;
       xterm.enable = false;
       xfce = {
         enable = true;
         noDesktop = true;
         enableXfwm = false;
-        thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
+        thunarPlugins = [ pkgs.xfce.thunar-archive-plugin pkgs.xfce.thunar-volman pkgs.xfce.thunar-media-tags-plugin ];
       };
     };
     windowManager.i3.package = pkgs.i3-gaps;
     windowManager.i3.enable = true;
     #windowManager.awesome.enable = true;
-    displayManager.defaultSession = "xfce+i3";
-    displayManager.gdm.enable = true;
+    displayManager = {
+    	lightdm.enable = true;
+			lightdm.greeters.gtk.enable = true;
+    	defaultSession = "xfce+i3";
+		};
+    #displayManager.gdm.enable = true;
   };
 
   services.picom = {

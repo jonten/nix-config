@@ -206,11 +206,13 @@ bindsym --release Shift+F4 exec --no-startup-id scrot -d 4 -u -z \
 # See https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
 #set $Locker i3lock -i ~/.i3lock.png && sleep 1
 #set $Locker i3lock -i ~/nixos-border.png && sleep 3
-set $Locker xscreensaver
+#set $Locker xscreensaver
+set $Locker xflock4
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, \
 (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
+    #bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym l exec --no-startup-id $Locker
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && sync && systemctl suspend, mode "default"
     #bindsyn s exec --no-startup-id $Locker && sync && zzz, mode "default"
@@ -225,41 +227,47 @@ mode "$mode_system" {
 #bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+z mode "$mode_system"
 
+# Enable xfce panel
+exec --no-startup-id xfce4-panel --disable-wm-check
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        position top
-        tray_output primary
-        status_command i3status
-        #set $ws2 "1 "
-        set $ws2  "2:&#xf120;"
-}
+# bar toggle, hide or show
+# bindsym $mod+m bar mode toggle
+#bar {
+#        position top
+#        tray_output primary
+#        status_command i3status
+#        #set $ws2 "1 "
+#        set $ws2  "2:&#xf120;"
+#}
 
 # Jontes mod found at https://xpressrazor.wordpress.com/2014/01/27/introduction-to-i3/
 # Shortcut to lock screen
-#bindsym $mod+Control+l exec i3lock -d
+# bindsym $mod+Control+l exec i3lock -d
 # Shortcuts to handle sound
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 # Shortcuts to favourite apps
 bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+c exec chromium
 bindsym $mod+Control+d exec dolphin
 bindsym $mod+Control+k exec keepassx
-bindsym Mod1+Control+l exec i3lock -d
+# bindsym Mod1+Control+l exec i3lock -d
+bindsym Mod1+Control+l exec xflock4
 bindsym Shift+Control+l exec --no-startup-id sh logout
 # Cycle through active workspaces
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 # Start new window without border
 for_window [class="^.*"] border pixel 1
-# Wallpapers
-exec --no-startup-id sh ~/.i3/fehbg
-# Network manager applet in taskbar
-exec --no-startup-id sh nm-applet
-# Start Dropbox at login
-exec --no-startup-id sh dropbox start -i
+## Wallpapers
+#exec --no-startup-id sh ~/.i3/fehbg
+## Network manager applet in taskbar
+#exec --no-startup-id sh nm-applet
+## Start Dropbox at login
+#exec --no-startup-id sh dropbox start -i
 
 # --------[ Conditionals ]-----------------------------------------------------

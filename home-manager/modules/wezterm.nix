@@ -3,8 +3,8 @@
   home.file.".wezterm.lua".text = ''
 		local wezterm = require 'wezterm';
 		return {
-			-- color_scheme = "Gruvbox Dark",
-			color_scheme = "Ayu Mirage",
+			color_scheme = "Gruvbox Dark",
+			-- color_scheme = "Ayu Mirage",
 			window_background_opacity = 0.97,
 			font = wezterm.font({family='JetBrains Mono', stretch="ExtraExpanded", weight="ExtraLight"}),
 			font_size = 9.5,

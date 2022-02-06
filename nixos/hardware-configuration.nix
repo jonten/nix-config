@@ -27,8 +27,8 @@
       fsType = "ext4";
     };
 
-  fileSystems."/home/xxx/Dropbox" =
-    { device = "/home/xxx/dropboxfs.img";
+  fileSystems."/home/jonte/Dropbox" =
+    { device = "/home/jonte/dropboxfs.img";
       fsType = "ext4";
     };
 
@@ -36,5 +36,5 @@
     [ { device = "/dev/sda2"; }
     ];
 
-  nix.maxJobs = 4;
+  nix.settings.max-jobs = 4;
 }

@@ -12,6 +12,5 @@
     terraform-providers.google
     terraform-providers.github
     terraform-providers.local
-    terraform-providers.nixos
   ];
 }
