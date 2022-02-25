@@ -3,8 +3,12 @@
   # Install misc cloud, IaC and virtualisation tools without configuration
   home.packages = with pkgs; [
     google-cloud-sdk
+    kpt
+    kubecolor
     kubectl
-    kubectx
+    #kubectx
+    #kubeprompt
+    kubernetes-helm
     k9s
     minikube
     packer

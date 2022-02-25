@@ -11,6 +11,7 @@
 		history.ignorePatterns = [ "rm -rf *" "pkill *" "kill *" ];
 		history.ignoreSpace = true;
     dotDir = ".config/zsh";
+    initExtra = "bindkey -e\n";
 		localVariables = { 
 			#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS = [ "dir" "vcs" ];
 		};
@@ -29,7 +30,14 @@
       hmh = "home-manager help";
       hmp = "home-manager packages";
       hms = "home-manager switch";
+      hmsu = "nix-channel --update home-manager && home-manager switch -b backup";
       hmsb = "home-manager switch -b backup";
+
+      # Kubectl aliases
+      kc = "kubectl";
+      kcc = "kubecolor";
+      kn = "kubie ns";
+      ctx = "kubie ctx";
 
       # Git aliases
       gcl = "git clone";  

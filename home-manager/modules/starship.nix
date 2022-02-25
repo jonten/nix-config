@@ -9,11 +9,11 @@
 			scan_timeout = 100;
       command_timeout = 1000;
       time = {
-        disabled = false;
+        disabled = true;
         style = "bright-black";
         format = "[$time]($style)";
       };
-      right_format = "$time";
+      right_format = "$kubernetes";
       format = "$all";
       #character = {
       #  success_symbol = "[➜](bold green)";
@@ -22,7 +22,7 @@
       package.disabled = true;
       line_break.disabled = true;
       directory = {
-        truncation_length = 4; 
+        truncation_length = 2; 
         truncation_symbol = "…/";
         style = "bold blue";
         home_symbol = "~";
@@ -30,12 +30,12 @@
         read_only = " ";
       };				
       git_branch = {
-        format = "[$branch]($style)";
+        format = "[\\($branch\\)]($style)";
         style = "yellow";
       };
 			git_status = {
-				format = "[[( $diverged$up_to_date$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style) ";
-				style = "cyan";
+				format = "[\\[($diverged$up_to_date$conflicted$untracked$modified$staged$renamed$deleted)\\](218)($ahead_behind$stashed)]($style) ";
+				style = "purple";
         ahead = "⇡";
         behind = "⇣";
         diverged = "⇕";
@@ -49,12 +49,14 @@
 				stashed = "≡";
 			};
 			git_state = {
-				format = "\([$state( $progress_current/$progress_total)]($style)\) ";
+				format = "[\\($state( $progress_current/$progress_total)\\)]($style)";
 				style = "yellow";
 			};
       kubernetes = {
-        disabled = true;
+        disabled = false;
 				symbol = "☸ ";
+        style = "bright-black";
+        format = "[$context( \\($namespace\\))]($style)";
       };
       nix_shell = {
 				symbol = " ";

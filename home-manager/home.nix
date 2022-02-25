@@ -20,6 +20,7 @@
   # paths it should manage.
   home.username = "${builtins.getEnv("USER")}";
   home.homeDirectory = "${builtins.getEnv("HOME")}";
+  home.sessionVariables = { EDITOR = "vim"; };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -39,6 +40,7 @@
     ./modules/firefox.nix
     ./modules/git.nix
     ./modules/golang.nix
+    ./modules/kubie.nix
     ./modules/neovim.nix
     ./modules/python.nix
     ./modules/rofi.nix

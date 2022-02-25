@@ -18,6 +18,7 @@
     nmap
     nox
     ripgrep
+    skim
     spacevim
     tmate
     tree
