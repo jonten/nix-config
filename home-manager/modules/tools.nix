@@ -7,6 +7,7 @@
     dmidecode
     figlet
     file
+    fzf
     htop
     httpie
     inconsolata-nerdfont
@@ -18,7 +19,7 @@
     nmap
     nox
     ripgrep
-    skim
+    screenfetch
     spacevim
     tmate
     tree
