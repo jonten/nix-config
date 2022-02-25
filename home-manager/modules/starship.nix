@@ -34,8 +34,8 @@
         style = "yellow";
       };
 			git_status = {
-				format = "[\\[($diverged$up_to_date$conflicted$untracked$modified$staged$renamed$deleted)\\](218)($ahead_behind$stashed)]($style) ";
-				style = "purple";
+				format = "[\\[($diverged$up_to_date$conflicted$untracked$modified$staged$renamed$deleted)(218)($ahead_behind$stashed)\\]]($style) ";
+				style = "bright-purple";
         ahead = "⇡";
         behind = "⇣";
         diverged = "⇕";
