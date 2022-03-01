@@ -7,7 +7,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Allow some insecure applications
-  nixpkgs.config.permittedInsecurePackages = [ "electron-9.4.4" ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-9.4.4" "electron-13.6.9" ];
 
   # Install and activate nix-direnv
   #programs.direnv.enable = true;
@@ -40,6 +40,7 @@
     ./modules/git.nix
     ./modules/golang.nix
     #./modules/keybase.nix
+    ./modules/kubie.nix
     ./modules/neovim.nix
     ./modules/python.nix
     ./modules/rofi.nix
