@@ -2,7 +2,7 @@
 {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-beta-bin;
+    package = pkgs.firefox-bin;
     profiles.default.userContent = ''
 .tab[notselectedsinceload="true"] {
   font-style: italic;

@@ -4,10 +4,10 @@
   home.packages = with pkgs; [
     cloud-custodian
     google-cloud-sdk
+    kpt
     kubernetes-helm
     kubecolor
     kubectl
-    kubectx
     kubepug
     k9s
     minikube
@@ -15,10 +15,6 @@
     podman
     podman-compose
     popeye
-    terraform
-    terraform-providers.google
-    terraform-providers.github
-    terraform-providers.local
-    #terraform-providers.nixos
+    tfswitch
   ];
 }

@@ -22,7 +22,7 @@
       package.disabled = true;
       line_break.disabled = true;
       directory = {
-        truncation_length = 4; 
+        truncation_length = 2;
         truncation_symbol = "…/";
         style = "bold blue";
         home_symbol = "~";
@@ -30,7 +30,7 @@
         read_only = " ";
       };				
       git_branch = {
-        format = "[$branch]($style)";
+        format = "\([$branch]($style)\)";
         style = "yellow";
       };
 			git_status = {
@@ -53,8 +53,9 @@
 				style = "yellow";
 			};
       kubernetes = {
-        disabled = true;
+        disabled = false;
 				symbol = "☸ ";
+        format = "\([$symbol$context]($style)\) ";
       };
       nix_shell = {
 				symbol = " ";
@@ -63,7 +64,7 @@
         format = "[\($state( $name\))](bright-black) ";
       };
 			aws = {
-				symbol = "  ";
+				symbol = " ";
 			};
 			docker_context = {
 				symbol = " ";
@@ -79,6 +80,7 @@
 			gcloud = {
 				symbol = " ";
         format = "[$symbol]($style) ";
+        disabled = true;
 			};
 			golang = {
 				symbol = " ";
@@ -121,6 +123,11 @@
 			swift = {
 				symbol = "ﯣ ";
         #version_format = "v${raw}";
+			};
+			terraform = {
+        symbol = " ";
+        version_format = "v$\{raw\}";
+        format = "[$symbol$version]($style) ";
 			};
     };
   };

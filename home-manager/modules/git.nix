@@ -6,6 +6,11 @@
     ignores =  [ "*~" "*.swp" "*.tmp" "*.crt" "*.key" "*.pem" ".netrc" "git.nix" ];
     userName = "Jon Norman";
     userEmail = "jon.norman@soundtrackyourbrand.com";
+    extraConfig = {
+      pull = {
+        rebase = false;
+      };
+    };
   };
 }
 

@@ -19,7 +19,7 @@
 		history.ignoreSpace = true;
     history.share = true;
     dotDir = ".config/zsh";
-    initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels";
+    initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels\nexport PATH=$PATH:$HOME/bin\nbindkey -e";
     #completionInit = "autoload -U compinit && compinit";
     dirHashes = {
 			docs  = "$HOME/Documents";
@@ -49,8 +49,14 @@
         };
       }
     ];
+    sessionVariables = {
+      EDITOR = "vim";
+    };
     shellAliases = {
       # Shell aliases
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
       vi = "vim";
       vim = "spacevim";
       nvim = "spacevim";
@@ -60,10 +66,14 @@
       hmp = "home-manager packages";
       hms = "home-manager switch";
       hmsb = "home-manager switch -b backup";
+      hmsu = "nix-channel --update home-manager && home-manager switch -b backup";
 
       # Kubernetes
       kc = "kubectl";
+      kcc = "kubecolor";
       c = "kubectl config use-context";
+      kn = "kubie ns";
+      cx = "kubie ctx";
 
       # Git aliases
       gcl = "git clone";  

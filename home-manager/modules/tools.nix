@@ -4,14 +4,20 @@
   home.packages = with pkgs; [
     adoptopenjdk-openj9-bin-16
     any-nix-shell
+    bat
     cachix
+    dhall
+    dhall-json
+    dhall-lsp-server
     dig
     dmidecode
+    exa
     exfat
     exfat-utils
     figlet
     file
     fuse_exfat
+    graphviz
     htop
     httpie
     inconsolata-nerdfont
@@ -27,13 +33,12 @@
     openssl
     pciutils
     pwgen
-    ripgrep-all
+    ripgrep
     rclone
     sd-switch
     smartmontools
     spacevim
     srm
-    sshpass
     tmate
     tree
     unrar
@@ -42,6 +47,7 @@
     wget
     whois
     xorg.xkill
+    yamllint
     zip
   ];
 }
