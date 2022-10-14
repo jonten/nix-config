@@ -3,6 +3,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     enableVteIntegration = true;
     autocd = true;
@@ -24,7 +25,6 @@
     shellAliases = {
       # Shell aliases
       vi = "vim";
-      vim = "spacevim";
       hm = "home-manager";
       hmg = "home-manager generations";
       hmh = "home-manager help";
