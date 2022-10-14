@@ -2,8 +2,9 @@
 {
   # Install Python and misc libraries
   home.packages = with pkgs; [
-    python3
-    python3Packages.pynvim
+    python39
+    python39Packages.pip
+    virtualenv
   ];
 }
 
