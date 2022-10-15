@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  # Install misc tools, utils and fonts without configuration
+  # Install misc tools and utils without configuration
   home.packages = with pkgs; [
     adoptopenjdk-openj9-bin-16
     any-nix-shell
@@ -21,7 +21,6 @@
     grpcurl
     htop
     httpie
-    inconsolata-nerdfont
     ipcalc
     jq
     linkchecker
@@ -29,7 +28,6 @@
     lsof
     microplane
     moreutils
-    nerdfonts
     nix-bash-completions
     nix-prefetch-scripts
     nmap

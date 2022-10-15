@@ -37,6 +37,7 @@
     ./modules/chromium.nix
     ./modules/cloud.nix
     ./modules/firefox.nix
+    ./modules/fonts.nix
     ./modules/git.nix
     ./modules/golang.nix
     #./modules/keybase.nix
