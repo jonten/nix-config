@@ -4,7 +4,11 @@
   home.packages = with pkgs; [
     any-nix-shell
     cachix
+    cdrkit
     dmidecode
+    dogdns
+    effitask
+    exa
     figlet
     file
     fzf
@@ -18,12 +22,13 @@
     nox
     ripgrep
     screenfetch
-    spacevim
     tmate
+    todofi-sh
+    todiff
+    todo-txt-cli
     tree
     unrar
     unzip
-		vim
     wget
   ];
 }
