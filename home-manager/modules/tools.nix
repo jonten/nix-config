@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  # Install misc tools, utils and fonts without configuration
+  # Install misc tools and utils without configuration
   home.packages = with pkgs; [
     any-nix-shell
     cachix
@@ -10,10 +10,8 @@
     fzf
     htop
     httpie
-    inconsolata-nerdfont
     jq
     lsof
-    nerdfonts
     nix-bash-completions
     nix-prefetch-scripts
     nmap
