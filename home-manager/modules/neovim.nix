@@ -164,7 +164,10 @@
     nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 
     " Map <wf> to write read only file with sudo
-    nnoremap wf :w !sudo tee %<CR>
+    nnoremap wf :w !sudo tee % <CR>
+
+    " Map q to quit file if changes are already saved
+    nnoremap q :q <CR>
 
     " Pressing return clears highlighted search
     nnoremap <CR> :nohlsearch<CR>/<BS>
