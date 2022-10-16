@@ -32,6 +32,9 @@
       hms = "home-manager switch";
       hmsu = "nix-channel --update home-manager && home-manager switch -b backup";
       hmsb = "home-manager switch -b backup";
+      la = "exa -la --git";
+      ll = "exa -l";
+      lt = "exa -T --icons";
 
       # Kubectl aliases
       kc = "kubectl";
