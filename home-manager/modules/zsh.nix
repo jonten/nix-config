@@ -35,6 +35,7 @@
       la = "exa -la --git";
       ll = "exa -l";
       lt = "exa -T --icons";
+      pm = "podman";
 
       # Kubectl aliases
       kc = "kubectl";
