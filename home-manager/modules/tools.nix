@@ -22,6 +22,7 @@
     nox
     ripgrep
     screenfetch
+    tldr
     tmate
     todofi-sh
     todiff
