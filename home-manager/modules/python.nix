@@ -2,9 +2,9 @@
 {
   # Install Python and misc libraries
   home.packages = with pkgs; [
-    python39
-    python39Packages.pip
-    virtualenv
+    python310Full
+    python310Packages.pip
+    python310Packages.virtualenv
   ];
 }
 
