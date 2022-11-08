@@ -165,6 +165,9 @@
     }; 
   };
 
+  # Install ZSH plugins
+  home.packages = with pkgs; [ zsh-z ];
+
   # Prezto ZSH plugin manager
   programs.zsh.prezto = {
     enable = true;
