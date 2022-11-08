@@ -8,8 +8,8 @@
     discord
     lens
     lxappearance
-    maestral
-    maestral-gui
+    #maestral
+    #maestral-gui
     obsidian
     qownnotes
     signal-cli
