@@ -41,7 +41,7 @@
       kc = "kubectl";
       kcc = "kubecolor";
       kn = "kubie ns";
-      ctx = "kubie ctx";
+      cx = "kubie ctx";
 
       # Git aliases
       gcl = "git clone";  
