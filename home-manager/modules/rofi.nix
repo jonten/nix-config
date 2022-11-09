@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
-{
+let
+  hidpiExtraConfig = if config.custom.hidpi then {
+    dpi = 160;
+  } else { };
+in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
@@ -8,9 +12,13 @@
     cycle = true;
     theme = "fancy";
     extraConfig = {
-        modi = "window,run,ssh,drun,keys,calc,emoji";
-        combi-modi = "window,drun,ssh";
+        modi = "combi";
+        #modi = "window,drun,run,keys,calc,emoji";
+        #modi = "window,drun,emoji,calc,run,ssh,combi";
+        combi-modi = "drun,emoji,calc,run,ssh,window";
         show-icons = true;
+        terminal = "wezterm";
+        ssh-command = "{terminal} {ssh-client} {host}";
     };
   };
 }
