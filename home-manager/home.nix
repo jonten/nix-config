@@ -50,6 +50,7 @@
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tools.nix
+    ./modules/vim.nix
     ./modules/wezterm.nix
     ./modules/vscode.nix
     ./modules/zsh.nix

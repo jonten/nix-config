@@ -1,45 +1,31 @@
 { config, pkgs, ... }:
 {
-  #nixpkgs.overlays = [
-  #  (import (builtins.fetchTarball {
-  #    #url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-  #    # To use a pinned version and not having to build Neovim everytime you run 'home-manager switch' do:
-  #    # Get the revision by choosing a commit from https://github.com/nix-community/neovim-nightly-overlay/commits/master
-  #    url = "https://github.com/nix-community/neovim-nightly-overlay/archive/7ab23810d3844251fef656d7acc4bfbb2c4584bd.tar.gz";
-  #    # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
-  #    sha256 = "0vrjk4bs02dsmzc5r7b4qp9byavlz1bqm0b4f1hbgcf1miq4x19g";
-  #  }))
-  #];
-  programs.neovim.enable = true;
-  programs.neovim.plugins = with pkgs.vimPlugins; [
+  programs.vim.enable = true;
+  programs.vim.packageConfigurable = pkgs.vim_configurable;
+  programs.vim.plugins = with pkgs.vimPlugins; [
     ale
+    auto-pairs
     i3config-vim
     lightline-ale
     lightline-bufferline
     lightline-vim
-    fugitive
     nerdtree
-    nvim-autopairs
-    nvim-surround
-    python-mode
     rainbow
-    tabline-nvim
     vim-commentary
     vim-devicons
+    vim-commentary
     vim-gitgutter
     vim-gruvbox8
-    vim-go
-    vim-graphql
     vim-hcl
     vim-helm
     vim-jinja
     vim-json
     vim-nix
-    vim-scala
     vim-sensible
+    vim-surround
     vim-yaml
   ];
-  programs.neovim.extraConfig = ''
+  programs.vim.extraConfig = ''
     " Disable compatibility with vi which can cause unexpected issues.
     set nocompatible
 
@@ -127,20 +113,14 @@
 
     " Set hidden and map buffer navigation
     set hidden
-    nnoremap <silent> <C-n> :bnext<CR>
-    nnoremap <silent> <C-p> :bprev<CR>
+    nnoremap <C-n> :bnext<CR>
+    nnoremap <C-p> :bprev<CR>
 
     " Set the backslash as the leader key.
     let mapleader = ","
 
     " Press \\ to jump back to the last cursor position.
     nnoremap <leader>, `` 
-
-    " Press \p to print the current file to the default printer from a Linux operating system.
-    " View available printers:   lpstat -v
-    " Set default printer:       lpoptions -d <printer_name>
-    " <silent> means do not display output.
-    " nnoremap <silent> <leader>p :%w !lp<CR>
 
     " Type jj to exit insert mode quickly.
     inoremap jj <Esc>
@@ -203,13 +183,10 @@
     " If the current file type is HTML, set indentation to 2 spaces.
     autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
-    " If the current file type is YAML, set indentation to 2 spaces.
-    autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
-
     " If Vim version is equal to or greater than 7.3 enable undofile.
     " This allows you to undo changes to a file even after saving it.
     if version >= 703
-        set undodir=~/.nvim/backup
+        set undodir=~/.vim/backup
         set undofile
         set undoreload=10000
     endif
@@ -301,3 +278,4 @@
     '';
   
 }
+
