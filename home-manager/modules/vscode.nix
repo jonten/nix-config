@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium-fhs;
+    package = pkgs.vscode-fhs;
     extensions = [
       pkgs.vscode-extensions.golang.go
       pkgs.vscode-extensions.vscodevim.vim
@@ -17,6 +17,10 @@
       pkgs.vscode-extensions.graphql.vscode-graphql
       pkgs.vscode-extensions.bbenoist.nix
       pkgs.vscode-extensions.arrterian.nix-env-selector
+      pkgs.vscode-extensions.foam.foam-vscode
+      pkgs.vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
+      pkgs.vscode-extensions.jdinhlife.gruvbox
+      pkgs.vscode-extensions.tabnine.tabnine-vscode
     ];
   };
 }
