@@ -2,8 +2,10 @@
 {
   # Install Python and misc libraries
   home.packages = with pkgs; [
-    python3
-    python3Packages.pynvim
+    python310Full
+    python310Packages.pip
+    python310Packages.pynvim
+    python310Packages.pre-commit-hooks
   ];
 }
 
