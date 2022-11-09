@@ -2,8 +2,6 @@
 {
   home.packages = with pkgs; [
     nix-zsh-completions
-    zsh-autosuggestions
-    zsh-completions
     zsh-nix-shell
   ];
 
@@ -11,6 +9,7 @@
     enable = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
     enableVteIntegration = true;
     autocd = true;
 		history.expireDuplicatesFirst = true;
@@ -19,36 +18,8 @@
 		history.ignoreSpace = true;
     history.share = true;
     dotDir = ".config/zsh";
-    initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels\nexport PATH=$PATH:$HOME/bin\nbindkey -e";
+    initExtra = "export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels\nexport PATH=$PATH:$HOME/bin:$HOME/.krew/bin:$HOME/bin/google-cloud-sdk/bin\nbindkey -e\nexport USE_GKE_GCLOUD_AUTH_PLUGIN=True";
     #completionInit = "autoload -U compinit && compinit";
-    dirHashes = {
-			docs  = "$HOME/Documents";
-			dl    = "$HOME/Downloads";
-			iso    = "$HOME/Downloads/iso";
-			code    = "$HOME/code";
-    };
-    plugins = [
-      {
-        # will source zsh-autosuggestions.plugin.zsh
-        name = "zsh-autosuggestions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-autosuggestions";
-          rev = "v0.7.0";
-          sha256 = "1g3pij5qn2j7v7jjac2a63lxd97mcsgw6xq6k5p7835q9fjiid98";
-        };
-      }
-      {
-        name = "enhancd";
-        file = "init.sh";
-        src = pkgs.fetchFromGitHub {
-          owner = "b4b4r07";
-          repo = "enhancd";
-          rev = "v2.2.4";
-          sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
-        };
-      }
-    ];
     sessionVariables = {
       EDITOR = "vim";
     };
@@ -57,7 +28,6 @@
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
-      vi = "vim";
       vim = "spacevim";
       nvim = "spacevim";
       hm = "home-manager";
@@ -67,6 +37,11 @@
       hms = "home-manager switch";
       hmsb = "home-manager switch -b backup";
       hmsu = "nix-channel --update home-manager && home-manager switch -b backup";
+      ll = "exa -l --git";
+      li = "exa -l --git --icons";
+      la = "exa -la --git";
+      lia = "exa -la --git --icons";
+      lit = "exa -T --icons";
 
       # Kubernetes
       kc = "kubectl";
@@ -128,6 +103,7 @@
       gba = "git branch -a";
       # FROM https://stackoverflow.com/a/58623139/10362396
       gbc = "git for-each-ref --format = \"%(authorname) %09 %(if)%(HEAD)%(then)*%(else)%(refname:short)%(end) %09 %(creatordate)\" refs/remotes/ --sort = authorname DESC";
+      branch-created = "() { git reflog show --date=iso $1 | grep 'Created' | awk '{ print $2 \" \" $3 }' | tr -t '@{' '  ';}";
       gbt = "git branch --track";
       gbm = "git branch -m";
       gbd = "git branch -d";
@@ -137,7 +113,8 @@
       gcpx = "git cherry-pick -x";
       gco = "git checkout";
       gcom = "git checkout master";
-      gcb = "git checkout -b";
+      #gcb = "git checkout -b";
+      gcb = "() { git checkout -b \"$*\"-\"$(date +%Y%m%d-%H%M)\";}";
       gcob = "git checkout -b";
       gcobu = "git checkout -b \${USER}/";
       gct = "git checkout --track";
