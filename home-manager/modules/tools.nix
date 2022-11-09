@@ -11,19 +11,23 @@
     dhall-lsp-server
     dig
     dmidecode
+    dogdns
     exa
     exfat
-    exfat-utils
     figlet
     file
-    fuse_exfat
+    gnumake
     graphviz
+    grpcurl
     htop
     httpie
     inconsolata-nerdfont
+    ipcalc
     jq
+    linkchecker
     lshw
     lsof
+    microplane
     moreutils
     nerdfonts
     nix-bash-completions
@@ -32,6 +36,7 @@
     nox
     openssl
     pciutils
+    procs
     pwgen
     ripgrep
     rclone
@@ -39,7 +44,10 @@
     smartmontools
     spacevim
     srm
+    stern
+    tldr
     tmate
+    traceroute
     tree
     unrar
     unzip
@@ -48,6 +56,8 @@
     whois
     xorg.xkill
     yamllint
+    yq
+    zellij
     zip
   ];
 }
