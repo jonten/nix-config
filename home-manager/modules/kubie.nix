@@ -38,7 +38,7 @@ prompt:
 
     # When using recursive contexts, show depth when larger than 1.
     # Default: true
-    show_depth: true
+    show_depth: false
 
     # When using zsh, show context and namespace on the right-hand side using RPS1.
     # Default: false
@@ -57,7 +57,7 @@ behavior:
     # Make sure the namespace exists with `kubectl get namespaces` when switching
     # namespaces. If you do not have the right to list namespaces, disable this.
     # Default: true
-    validate_namespaces: true
+    validate_namespaces: false
 
     # Enable or disable the printing of the 'CONTEXT => ...' headers when running
     # `kubie exec`.
@@ -67,6 +67,6 @@ behavior:
     #   always: Always prints context headers, even if stdout is not a TTY.
     #   never:  Never prints context headers.
     # Default: auto
-    print_context_in_exec: auto
+    print_context_in_exec: never
 '';
 }
