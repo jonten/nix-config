@@ -6,14 +6,14 @@
     # Configuration written to ~/.config/starship.toml
     settings = {
       add_newline = false;
-			scan_timeout = 100;
-      command_timeout = 1000;
+      #scan_timeout = 500;
+      command_timeout = 2000;
       time = {
-        disabled = false;
+        disabled = true;
         style = "bright-black";
-        format = "[$time]($style)";
+        format = "($style)";
       };
-      right_format = "$time";
+      right_format = "$kubernetes $terraform $nix_shell";
       format = "$all";
       #character = {
       #  success_symbol = "[➜](bold green)";
@@ -21,6 +21,7 @@
       #};
       package.disabled = true;
       line_break.disabled = true;
+      cmd_duration.disabled = true;
       directory = {
         truncation_length = 2;
         truncation_symbol = "…/";
@@ -28,14 +29,14 @@
         home_symbol = "~";
         truncate_to_repo = false;
         read_only = " ";
-      };				
+      };
       git_branch = {
-        format = "\([$branch]($style)\)";
+        format = "[\\($branch\\)]($style)";
         style = "yellow";
       };
 			git_status = {
-				format = "[[( $diverged$up_to_date$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style) ";
-				style = "cyan";
+				format = "[(\\[($diverged$up_to_date$conflicted$untracked$modified$staged$renamed$deleted)(218)($ahead_behind$stashed)\\])]($style) ";
+				style = "bright-purple";
         ahead = "⇡";
         behind = "⇣";
         diverged = "⇕";
@@ -49,13 +50,15 @@
 				stashed = "≡";
 			};
 			git_state = {
-				format = "\([$state( $progress_current/$progress_total)]($style)\) ";
+				format = "[\\($state( $progress_current/$progress_total)\\)]($style)";
 				style = "yellow";
 			};
       kubernetes = {
         disabled = false;
 				symbol = "☸ ";
-        format = "\([$symbol$context]($style)\) ";
+        style = "bright-black";
+        #format = "[$symbol$context( \\($namespace\\))]($style)";
+        format = "[$symbol$context]($style)";
       };
       nix_shell = {
 				symbol = " ";
@@ -126,6 +129,7 @@
 			};
 			terraform = {
         symbol = " ";
+        style = "bright-black";
         version_format = "v$\{raw\}";
         format = "[$symbol$version]($style) ";
 			};
