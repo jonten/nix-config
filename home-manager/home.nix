@@ -42,6 +42,7 @@
     #./modules/keybase.nix
     ./modules/kubie.nix
     ./modules/neovim.nix
+    #./modules/pre-commit.nix
     ./modules/python.nix
     ./modules/rofi.nix
     ./modules/rust.nix
