@@ -3,18 +3,20 @@
   # Install misc cloud, IaC and virtualisation tools without configuration
   home.packages = with pkgs; [
     cloud-custodian
-    google-cloud-sdk
+    k9s
     kpt
+    krew
     kubernetes-helm
     kubecolor
-    kubectl
     kubepug
-    k9s
     minikube
     packer
-    podman
-    podman-compose
     popeye
+    skaffold
+    terraform-docs
+    terrascan
+    tflint
+    tfsec
     tfswitch
   ];
 }
