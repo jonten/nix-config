@@ -7,20 +7,23 @@
     authy
     bitwarden
     brave
-    discord
     element-desktop
-    feedreader
     gimp
-    guake
-    imwheel
     lens
     libreoffice-fresh
     maestral
     maestral-gui
+    marker
+    newsflash
     obinskit
     obsidian
-    signal-cli
-    signal-desktop
+    pinta
+    remmina
+    simplescreenrecorder
     slack
+    tabnine
+    vivaldi
+    whatsapp-for-linux
+    zoom-us
   ];
 }
